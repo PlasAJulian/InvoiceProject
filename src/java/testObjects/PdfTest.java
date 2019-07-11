@@ -22,7 +22,7 @@ public class PdfTest {
         
         String fileName = "EmptyPdf.pdf"; // name of our file
         templateOne t1 = new templateOne();
-        
+        data d = new data();
         try{
         doc = new PDDocument(); // creating instance of pdfDoc
         PDPage page = new PDPage();
@@ -35,7 +35,7 @@ public class PdfTest {
         //////////////////////////////////////////////////////
         //Cust and job info
         t1.custJobBox(stuff);
-        t1.custJobtext(stuff);
+        t1.custJobtext(stuff, d);
         ////////////////////////////////////
         //date
         t1.dateBox(stuff);

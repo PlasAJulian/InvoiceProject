@@ -166,7 +166,7 @@ public class templateOne {
         content.endText();
         System.out.println("custJobBox has been added");
     }
-    public void custJobtext(PDPageContentStream content) throws IOException{
+    public void custJobtext(PDPageContentStream content, data d) throws IOException{
         String name = "julian";
         String street = "100 Talley st.";
         String city = "Marietta";
@@ -178,31 +178,31 @@ public class templateOne {
         content.beginText();
         content.newLineAtOffset(30, 565);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);
-        content.showText(name);
+        content.showText(d.custName);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(30, 545);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);
-        content.showText(phone);
+        content.showText(d.custPhone);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(30, 530);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);
-        content.showText(email);
+        content.showText(d.custEmail);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(311, 565);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);
-        content.showText(street);
+        content.showText(d.jobStreet);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(311, 550);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);
-        content.showText(city+" "+state+" "+zip);
+        content.showText(d.jobCity+" "+d.jobState+" "+d.jobZip);
         content.endText();
     }
     public void tableRowNameBox(PDPageContentStream content) throws IOException{
