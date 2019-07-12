@@ -6,14 +6,13 @@
 	</head>
 	
 	<body>
+            <form action="/InvoiceProject/userPageServlet" method="post">
 	<div class="modal">
 		<h2>Please enter your information.</h2>
 		Name:<br>
 		<input type="text" name="userName" placeholder=""><br>
 		Address:<br>
-		<input type="text" name="userName" placeholder=""><br>
-		<!--Address:
-		<input type="text" name="userAddress" placeholder=""><br>-->
+		<input type="text" name="userAdd" placeholder=""><br>
 		City:<br>
 		<input type="text" name="userCity" placeholder=""><br>
 		State:<br>
@@ -76,7 +75,8 @@
 		<input type="text" name="userPhone" placeholder=""><br>
 		E-mail:<br>
 		<input type="text" name="userEmail" placeholder=""><br>
-		<button type="button">Next</button>
+		<input type="submit" value="Next Page">
 		</div>
+            </form>
 	</body>
 </html>
