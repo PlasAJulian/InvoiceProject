@@ -1,27 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Julian A Plasencia
+ *invoice project 
+ *
+ *one template used to create and add text to pdf file. some var will be replaced with var from actual site.
  */
 package testObjects;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import static testObjects.PdfTest.doc;
 
-/**
- *
- * @author GhostBit
- */
+
 public class templateOne {
-    public void dateBox(PDPageContentStream content) throws IOException{
+    public void dateBox(PDPageContentStream content) throws IOException{ //box of date
         int l = 512;
         int r = 587;
         int t = 775;
@@ -49,7 +45,7 @@ public class templateOne {
         content.closeAndStroke();
         System.out.println("DateBox has been added");
     }
-    public void dateText(PDPageContentStream content) throws IOException{
+    public void dateText(PDPageContentStream content) throws IOException{ //current date added to pdf
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	LocalDate localDate = LocalDate.now();
 	System.out.println(dtf.format(localDate));
@@ -62,7 +58,7 @@ public class templateOne {
         content.endText();
         
     }
-    public void userInfoBox(PDPageContentStream content) throws IOException{
+    public void userInfoBox(PDPageContentStream content) throws IOException{ //box created to hold user's info
         int l = 181;
         int r = 431;
         int t = 750;
@@ -87,15 +83,16 @@ public class templateOne {
         content.closeAndStroke();
         System.out.println("userInfoBox has been added");
     }
-    public void userText(PDPageContentStream content)throws IOException{
+    public void userText(PDPageContentStream content)throws IOException{ //add test to user's box
+        ////////////////////////////////////////////
         String name = "julian";
         String street = "100 Talley st.";
         String city = "Marietta";
-        String state = "GA";
+        String state = "GA";        ///////////////// will all be replaced
         String zip = "30060";
         String phone = "4049148678";
         String email = "julianpause@hormail.com";
-        
+        ////////////////////////////////////////////////
         content.beginText();
         content.newLineAtOffset(186, 733);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
@@ -127,7 +124,7 @@ public class templateOne {
         content.endText();
         
     }
-    public void custJobBox(PDPageContentStream content) throws IOException{
+    public void custJobBox(PDPageContentStream content) throws IOException{ //created boxs for customer's info and customer's or job address.
         int l = 25;
         int r = 587;
         int t = 625;
@@ -166,15 +163,16 @@ public class templateOne {
         content.endText();
         System.out.println("custJobBox has been added");
     }
-    public void custJobtext(PDPageContentStream content, data d) throws IOException{
+    public void custJobtext(PDPageContentStream content, data d) throws IOException{ //add test to ustomer's info and customer's or job address
+        ///////////////////////////////////////////////////
         String name = "julian";
         String street = "100 Talley st.";
         String city = "Marietta";
-        String state = "GA";
+        String state = "GA";            /////////////////// will all be replaced
         String zip = "30060";
         String phone = "4049148678";
         String email = "julianpause@hormail.com";
-        
+        ////////////////////////////////////////////////
         content.beginText();
         content.newLineAtOffset(30, 565);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);
@@ -205,7 +203,7 @@ public class templateOne {
         content.showText(d.jobCity+" "+d.jobState+" "+d.jobZip);
         content.endText();
     }
-    public void tableRowNameBox(PDPageContentStream content) throws IOException{
+    public void tableRowNameBox(PDPageContentStream content) throws IOException{ // creates row with all the columns' name
         int l = 25;
         int r0 = 437;
         int r1 = 512;
@@ -277,7 +275,7 @@ public class templateOne {
         content.closeAndStroke();
         System.out.println("tableRowNameBox has been added");
     }
-    public void itemList(PDPageContentStream content) throws IOException{
+    public void itemList(PDPageContentStream content) throws IOException{ //add text from an array to the table in the pdf. limit is 25 itmes. breaks when a 3rd page is added.
         int text = 375;
         int l = 25;
         int r0 = 437;
@@ -287,7 +285,9 @@ public class templateOne {
         int b = 360;
         int total = 0;
         int Quantity = 0;
-        ArrayList<String[]> outerArr = new ArrayList<String[]>(); 
+        ArrayList<String[]> outerArr = new ArrayList<String[]>();  /////////////////might be replaced
+        ///////////////////////////////
+        //all of this was just used to test this method. all will be removed
         String[] myString1= {"This is what i did for the job.","1","100"};  
         String[] myString2= {"This is what i did for the job.","2","200"};  
         String[] myString3= {"This is what i did for the job.","3","300"};
@@ -310,7 +310,7 @@ public class templateOne {
         
         
         outerArr.add(myString1);
-    outerArr.add(myString2);
+        outerArr.add(myString2);
         outerArr.add(myString3);
         outerArr.add(myString4);
         outerArr.add(myString5);
@@ -331,8 +331,8 @@ public class templateOne {
         outerArr.add(myString2);
         outerArr.add(myString2);
         outerArr.add(myString2);
-
-        for(int i=0;i<outerArr.size();i++){
+        ///////////////////////////////////////////////
+        for(int i=0;i<outerArr.size();i++){//creates all the cell that will be needed
                 //items
                 //left
                 content.setLineWidth(1);
@@ -376,7 +376,7 @@ public class templateOne {
                 content.closeAndStroke();
                 
                 
-                String[] myString= new String[3]; 
+                String[] myString= new String[3]; /////////////////creates another array to add text into each cell in the table.
                 myString=outerArr.get(i);
                 
                 content.beginText();
@@ -397,7 +397,7 @@ public class templateOne {
                 content.showText(myString[2]);
                 content.endText();
                 
-                int num;
+                int num;/////////////cals the total of all the items in the table.
                 Quantity = Integer.parseInt(myString[1]);
                 num = Quantity * Integer.parseInt(myString[2]);
                 total = total + num;
@@ -405,25 +405,28 @@ public class templateOne {
                 b = b - 40;
                 text = text - 40; 
                 System.out.println(b + " Last number");
-            if (b < 40 ){
-                text = 757;
-                t = 782;
-                b = 742;
+                //////////////////////
+                //addes another page to pdf when bottom of the first page is reached.
+                // breaks if pdf need more the 2 pages.
+                //needs to be fixed
+                if (b < 40 ){
+                    text = 757;
+                    t = 782;
+                    b = 742;
                 
-                PDPage p2 = new PDPage();
-                PdfTest.doc.addPage(p2);
-                PDPageContentStream page2 = new PDPageContentStream(doc, p2);
-                content = page2;
-                System.out.println("This is only one page. It think"); 
-            }
+                    PDPage p2 = new PDPage();
+                    PdfTest.doc.addPage(p2);
+                    PDPageContentStream page2 = new PDPageContentStream(doc, p2);
+                    content = page2;
+                    System.out.println("This is only one page. It think"); 
+                }
         }
         System.out.println("-----final-------"+total);
         //note
         note(content, total);
         content.close();
     }
-    //this will later take a string
-    public void note(PDPageContentStream content, int t) throws IOException{
+    public void note(PDPageContentStream content, int t) throws IOException{//this will later take a string
         content.beginText();
         content.newLineAtOffset(25, 50);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
@@ -444,7 +447,7 @@ public class templateOne {
         content.showText("$"+t);
         content.endText();
     }
-    //word wrapping
+    //testing word wrapping. this will later be its own class.
     public void wordWrap(int x, int y, String text){
         /*
         ??????????Two Lines?????????????????????????

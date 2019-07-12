@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Julian A Plasencia
+ *invoice project 
+ *
+ *servlet used to take data from the user's info page and stores them in the session.
  */
 package servlets;
 
@@ -16,10 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import testObjects.data;
 
-/**
- *
- * @author GhostBit
- */
+
 @WebServlet(name = "userPageServlet", urlPatterns = {"/userPageServlet"})
 public class userPageServlet extends HttpServlet {
 
@@ -70,6 +68,7 @@ public class userPageServlet extends HttpServlet {
             
             RequestDispatcher rd = request.getRequestDispatcher("testSites1/.html");//////////////////////////////////////////////////////////////////////////////////
             rd.forward(request, response);  
+            /////Tested to feel if the data is being processed corectly
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");

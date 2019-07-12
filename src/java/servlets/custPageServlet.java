@@ -1,3 +1,9 @@
+/*
+ *Julian A Plasencia
+ *invoice project 
+ *
+ *servlet used to take data from the customer's info page and stores them in the session.
+ */
 package servlets;
 
 import java.io.IOException;
@@ -66,8 +72,7 @@ public class custPageServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("testSites1/userInfo.html");
             rd.forward(request, response);  
 
-            
-
+            /////Tested to feel if the data is being processed corectly in the pdf file. 
             /*
             System.out.println("Create Simple PDF file with blank Page");
             String fileName = "testCust.pdf"; // name of our file

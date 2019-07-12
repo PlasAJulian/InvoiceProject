@@ -1,19 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Julian A Plasencia
+ *invoice project 
+ *
+ *Create this class to test pdfbox and get the layout of the boxs I created
  */
 package testObjects;
-import java.awt.Color;
+
 import java.io.IOException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
 public class PdfTest {
-    public static PDDocument doc;
+    
+    public static PDDocument doc; //used to add another page to pdf --might not use.
     public PDDocument getDoc(){
         return doc;
     }
@@ -24,12 +24,12 @@ public class PdfTest {
         templateOne t1 = new templateOne();
         data d = new data();
         try{
-        doc = new PDDocument(); // creating instance of pdfDoc
+        doc = new PDDocument(); //creating instance of pdfDoc
         PDPage page = new PDPage();
-        doc.addPage(page); // adding page in pdf doc file
+        doc.addPage(page); //adding page in pdf doc file
         PDPageContentStream stuff = new PDPageContentStream(doc, page); //needed to add content to page
         //////////////////////////////////////////////////////
-        //Your info
+        //User info
         t1.userInfoBox(stuff);
         t1.userText(stuff);
         //////////////////////////////////////////////////////
@@ -47,15 +47,14 @@ public class PdfTest {
         //items
         t1.itemList(stuff);
         ////////////////////////////
-        System.out.println(page.getMediaBox().getHeight());
+        System.out.println(page.getMediaBox().getHeight()); 
         System.out.println(page.getMediaBox().getWidth());
         stuff.close();
-        doc.save(fileName); // saving as pdf file with name perm 
+        doc.save(fileName); //saving as pdf file with name 
         
         doc.close(); // cleaning memory 
         
         System.out.println("your file created in : "+ System.getProperty("user.dir"));
-        
         
         }
         catch(IOException e){

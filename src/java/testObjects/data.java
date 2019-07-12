@@ -1,8 +1,13 @@
-
+/*
+ *Julian A Plasencia
+ *invoice project 
+ *
+ *Create this class just to keep all the data in one location. 
+ */
 package testObjects;
 
 public class data {
-    //user info
+   //user info
    public String userName;
    public String userStreet;
    public String userCity;
@@ -10,22 +15,22 @@ public class data {
    public String userZip;
    public String userPhone;
    public String userEmail;
-   //cust info
+   //customer info
    public String custName;
    public String custPhone;
    public String custEmail;
-   //job info
+   //job/customer address
    public String jobStreet;
    public String jobCity;
    public String jobState;
    public String jobZip;
    
    //items
-   public String[] item;
+   public String[] item; // might not use
    public String itemDesc;
    public double itemPrice;
    public String itemQuatiry;
-   public itemList list = new itemList();
+   public itemList list = new itemList(); //might not used
    
    public String getUserName(){
        return userName;

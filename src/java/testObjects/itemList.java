@@ -1,3 +1,9 @@
+/*
+ *Julian A Plasencia
+ *invoice project 
+ *
+ *originally used to test and help create table of item to the pdf file. might be fully repalced with javascript
+ */
 package testObjects;
 
 import java.util.ArrayList;

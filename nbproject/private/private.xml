@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/GhostBit/Desktop/git/InvoiceProject/src/java/servlets/custPageServlet.java</file>
+            <file>file:/C:/Users/GhostBit/Desktop/git/InvoiceProject/src/java/testObjects/PdfTest.java</file>
+            <file>file:/C:/Users/GhostBit/Desktop/git/InvoiceProject/src/java/testObjects/itemList.java</file>
+            <file>file:/C:/Users/GhostBit/Desktop/git/InvoiceProject/src/java/testObjects/data.java</file>
+            <file>file:/C:/Users/GhostBit/Desktop/git/InvoiceProject/src/java/testObjects/templateOne.java</file>
+            <file>file:/C:/Users/GhostBit/Desktop/git/InvoiceProject/src/java/servlets/userPageServlet.java</file>
+        </group>
     </open-files>
 </project-private>
