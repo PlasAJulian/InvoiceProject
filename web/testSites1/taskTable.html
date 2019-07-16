@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Maker</title>
+</head>
+<body onload="createTable()">
+     
+<h2>Place enter the items/tasks</h2>
+    <p>
+        <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
+    </p>
+    <form action="/testList/list" method="post">/////////////////////////////////////////////////////////////////////////////////////////////
+        <div id="Table"></div>
+	
+        <p><input type="submit" id="createBnt" value="Create PDF" onclick="allData()"/></p>
+        <input type="hidden" name="hData" id="hData"/>
+        <p id="demo"></p>
+     </form>
+</body>
+
+<script>
+    var topRow = new Array(); 
+    topRow = ['Description', 'Quantity', 'PriceQuantity', '']; //top row of the table
+
+    //function creates the table with the top row header and adds it to the page
+    function createTable() {
+        var taskTable = document.createElement('table');
+        taskTable.setAttribute('id', 'taskTable');
+
+        var tr = taskTable.insertRow(-1);
+        for (var i = 0; i < topRow.length; i++) {
+            var th = document.createElement('th');
+            th.innerHTML = topRow[i];
+            tr.appendChild(th);
+        }
+
+        var div = document.getElementById('Table');
+        div.appendChild(taskTable);
+    }
+
+    //When addRow button is pushed, loops to add a row with the same amount of cells the header has
+    function addRow() {
+        var empTab = document.getElementById('taskTable');
+        var rowCnt = empTab.rows.length;
+        var tr = empTab.insertRow(rowCnt);
+        tr = empTab.insertRow(rowCnt);
+
+        for (var i = 0; i < topRow.length; i++) {
+            var td = document.createElement('td');
+            td = tr.insertCell(i);
+
+            if (i == 3) {   //adds a btn at the end of each row used to remove a row using 'removeRow' function
+                var button = document.createElement('input');
+
+                button.setAttribute('type', 'button');
+                button.setAttribute('value', 'Remove');
+                button.setAttribute('onclick', 'removeRow(this)');
+
+                td.appendChild(button);
+            }
+            else {  //all the other cells becomes a text boxes
+                var ele = document.createElement('input'); 
+                ele.setAttribute('type', 'text');
+                ele.setAttribute('value', '');
+
+                td.appendChild(ele);
+            }
+        }
+    }
+
+    //function removes a row 
+    function removeRow(rButton) {
+        var empTab = document.getElementById('taskTable');
+        empTab.deleteRow(rButton.parentNode.parentNode.rowIndex);
+    }
+
+    //gets all the data from the textboxs in the table
+    function allData() {
+        var myTab = document.getElementById('taskTable');
+        var values = new Array();
+
+        for (row = 1; row < myTab.rows.length - 1; row++) { //looping threw each row and cell in table and adds the data to an array
+            for (c = 0; c < myTab.rows[row].cells.length; c++) {
+                var element = myTab.rows.item(row).cells[c];
+                if (element.childNodes[0].getAttribute('type') == 'text') {
+                    values.push(element.childNodes[0].value);
+                }
+            }
+        }
+        //puts the data in a hidden input to help to servlet and add '~~' between each data entry for spilling later
+        var javaData = document.getElementById("hData");
+        javaData.value = values.join("~~");
+    }
+</script>
+</html>

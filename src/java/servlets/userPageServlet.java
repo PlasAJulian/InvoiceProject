@@ -66,7 +66,7 @@ public class userPageServlet extends HttpServlet {
             ses1.setAttribute("d", dd);
             System.out.println("Customer data added to Session");
             
-            RequestDispatcher rd = request.getRequestDispatcher("testSites1/.html");//////////////////////////////////////////////////////////////////////////////////
+            RequestDispatcher rd = request.getRequestDispatcher("testSites1/taskTable.html");//////////////////////////////////////////////////////////////////////////////////
             rd.forward(request, response);  
             /////Tested to feel if the data is being processed corectly
             /* TODO output your page here. You may use following sample code. */
