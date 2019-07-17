@@ -9,7 +9,7 @@
     <p>
         <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
     </p>
-    <form action="/testList/list" method="post">/////////////////////////////////////////////////////////////////////////////////////////////
+    <form action="/InvoiceProject/taskPageServlet" method="post">
         <div id="Table"></div>
 	
         <p><input type="submit" id="createBnt" value="Create PDF" onclick="allData()"/></p>
@@ -38,40 +38,66 @@
         div.appendChild(taskTable);
     }
 
+    var c = 0;
     //When addRow button is pushed, loops to add a row with the same amount of cells the header has
     function addRow() {
+        
         var empTab = document.getElementById('taskTable');
         var rowCnt = empTab.rows.length;
         var tr = empTab.insertRow(rowCnt);
         tr = empTab.insertRow(rowCnt);
+        if(c<=24){
+            for (var i = 0; i < topRow.length; i++) {
+                var td = document.createElement('td');
+                td = tr.insertCell(i);
 
-        for (var i = 0; i < topRow.length; i++) {
-            var td = document.createElement('td');
-            td = tr.insertCell(i);
+                if (i == 3) {   //adds a btn at the end of each row used to remove a row using 'removeRow' function
+                    var button = document.createElement('input');
 
-            if (i == 3) {   //adds a btn at the end of each row used to remove a row using 'removeRow' function
-                var button = document.createElement('input');
+                    button.setAttribute('type', 'button');
+                    button.setAttribute('value', 'Remove');
+                    button.setAttribute('onclick', 'removeRow(this)');
 
-                button.setAttribute('type', 'button');
-                button.setAttribute('value', 'Remove');
-                button.setAttribute('onclick', 'removeRow(this)');
+                    td.appendChild(button);
+                }
+                else if(i == 2){
+                    var pr = document.createElement('input'); 
+                    pr.setAttribute('type', 'number');
+                    pr.setAttribute('value', '');
+                    pr.setAttribute('min', '0');
 
-                td.appendChild(button);
+                    des.appendChild(ele);
+                }
+                else if(i == 1){
+                    var qu = document.createElement('input'); 
+                    qu.setAttribute('type', 'number');
+                    qu.setAttribute('value', '');
+                    qu.setAttribute('min', '0');
+
+                    td.appendChild(ele);
+                }
+                else {  //all the other cells becomes a text boxes
+                    var des = document.createElement('input'); 
+                    des.setAttribute('type', 'text');
+                    des.setAttribute('value', '');
+                    des.setAttribute('Name', 'desText');
+
+                    td.appendChild(ele);
+                }
             }
-            else {  //all the other cells becomes a text boxes
-                var ele = document.createElement('input'); 
-                ele.setAttribute('type', 'text');
-                ele.setAttribute('value', '');
-
-                td.appendChild(ele);
+            c++
+        }
+            else{
+                 document.getElementById("addRow").disabled=true;
             }
         }
-    }
 
     //function removes a row 
     function removeRow(rButton) {
         var empTab = document.getElementById('taskTable');
         empTab.deleteRow(rButton.parentNode.parentNode.rowIndex);
+        document.getElementById("addRow").disabled=false;
+        c--;
     }
 
     //gets all the data from the textboxs in the table
@@ -92,4 +118,4 @@
         javaData.value = values.join("~~");
     }
 </script>
-</html>
+</html> 
