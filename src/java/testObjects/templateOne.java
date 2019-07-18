@@ -83,44 +83,35 @@ public class templateOne {
         content.closeAndStroke();
         System.out.println("userInfoBox has been added");
     }
-    public void userText(PDPageContentStream content)throws IOException{ //add test to user's box
-        ////////////////////////////////////////////
-        String name = "julian";
-        String street = "100 Talley st.";
-        String city = "Marietta";
-        String state = "GA";        ///////////////// will all be replaced
-        String zip = "30060";
-        String phone = "4049148678";
-        String email = "julianpause@hormail.com";
-        ////////////////////////////////////////////////
+    public void userText(PDPageContentStream content, data d)throws IOException{ //add test to user's box
         content.beginText();
         content.newLineAtOffset(186, 733);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
-        content.showText(name);
+        content.showText(d.userName);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(186, 708);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
-        content.showText(street);
+        content.showText(d.userStreet);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(186, 695);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
-        content.showText(city+" "+state+" "+zip);
+        content.showText(d.userCity+" "+d.userState+" "+d.userZip);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(186, 673);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
-        content.showText(phone);
+        content.showText(d.userPhone);
         content.endText();
         
         content.beginText();
         content.newLineAtOffset(186, 660);
         content.setFont(PDType1Font.TIMES_ROMAN, 12);
-        content.showText(email);
+        content.showText(d.userEmail);
         content.endText();
         
     }
@@ -164,15 +155,6 @@ public class templateOne {
         System.out.println("custJobBox has been added");
     }
     public void custJobtext(PDPageContentStream content, data d) throws IOException{ //add test to ustomer's info and customer's or job address
-        ///////////////////////////////////////////////////
-        String name = "julian";
-        String street = "100 Talley st.";
-        String city = "Marietta";
-        String state = "GA";            /////////////////// will all be replaced
-        String zip = "30060";
-        String phone = "4049148678";
-        String email = "julianpause@hormail.com";
-        ////////////////////////////////////////////////
         content.beginText();
         content.newLineAtOffset(30, 565);
         content.setFont(PDType1Font.TIMES_ROMAN, 15);

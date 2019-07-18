@@ -7,7 +7,7 @@
      
 <h2>Place enter the items/tasks</h2>
     <p>
-        <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
+        <input type="button" id="addRow" value="Add New Row" onclick="addRow()"/>
     </p>
     <form action="/InvoiceProject/taskPageServlet" method="post">
         <div id="Table"></div>
@@ -66,7 +66,7 @@
                     pr.setAttribute('value', '');
                     pr.setAttribute('min', '0');
 
-                    des.appendChild(ele);
+                    td.appendChild(pr);
                 }
                 else if(i == 1){
                     var qu = document.createElement('input'); 
@@ -74,7 +74,7 @@
                     qu.setAttribute('value', '');
                     qu.setAttribute('min', '0');
 
-                    td.appendChild(ele);
+                    td.appendChild(qu);
                 }
                 else {  //all the other cells becomes a text boxes
                     var des = document.createElement('input'); 
@@ -82,7 +82,7 @@
                     des.setAttribute('value', '');
                     des.setAttribute('Name', 'desText');
 
-                    td.appendChild(ele);
+                    td.appendChild(des);
                 }
             }
             c++
@@ -108,7 +108,7 @@
         for (row = 1; row < myTab.rows.length - 1; row++) { //looping threw each row and cell in table and adds the data to an array
             for (c = 0; c < myTab.rows[row].cells.length; c++) {
                 var element = myTab.rows.item(row).cells[c];
-                if (element.childNodes[0].getAttribute('type') == 'text') {
+                if (element.childNodes[0].getAttribute('type') == 'text'|| element.childNodes[0].getAttribute('type') == 'number' ) {
                     values.push(element.childNodes[0].value);
                 }
             }

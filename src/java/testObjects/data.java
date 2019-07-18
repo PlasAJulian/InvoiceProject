@@ -6,6 +6,9 @@
  */
 package testObjects;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class data {
    //user info
    public String userName;
@@ -26,11 +29,11 @@ public class data {
    public String jobZip;
    
    //items
-   public String[] item; // might not use
+   public String[] taskList; // might not use
    public String itemDesc;
    public double itemPrice;
    public String itemQuatiry;
-   public itemList list = new itemList(); //might not used
+   public ArrayList<String[]> a1 = new ArrayList<String[]>();
    
    public String getUserName(){
        return userName;
@@ -131,10 +134,10 @@ public class data {
    }
    //items
    public String[] getItem(){
-       return item;
+       return taskList;
    }
    public void getItem(String[] c){
-       c = item;
+       c = taskList;
    }
    public String getItemDesc(){
        return itemDesc;

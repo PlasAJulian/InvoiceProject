@@ -31,7 +31,7 @@ public class PdfTest {
         //////////////////////////////////////////////////////
         //User info
         t1.userInfoBox(stuff);
-        t1.userText(stuff);
+        t1.userText(stuff, d);
         //////////////////////////////////////////////////////
         //Cust and job info
         t1.custJobBox(stuff);
