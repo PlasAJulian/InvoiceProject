@@ -9,7 +9,7 @@
     <p>
         <input type="button" id="addRow" value="Add New Row" onclick="addRow()"/>
     </p>
-    <form action="/InvoiceProject/taskPageServlet" method="post">
+    <form name="tableForm" action="/InvoiceProject/taskPageServlet" method="post" onsubmit="return(validate())">
         <div id="Table"></div>
 	
         <p><input type="submit" id="createBnt" value="Create PDF" onclick="allData()"/></p>
@@ -65,6 +65,7 @@
                     pr.setAttribute('type', 'number');
                     pr.setAttribute('value', '');
                     pr.setAttribute('min', '0');
+                    pr.setAttribute('Name', 'pNum');
 
                     td.appendChild(pr);
                 }
@@ -73,6 +74,7 @@
                     qu.setAttribute('type', 'number');
                     qu.setAttribute('value', '');
                     qu.setAttribute('min', '0');
+                    qu.setAttribute('Name', 'qNum');
 
                     td.appendChild(qu);
                 }
@@ -116,6 +118,26 @@
         //puts the data in a hidden input to help to servlet and add '~~' between each data entry for spilling later
         var javaData = document.getElementById("hData");
         javaData.value = values.join("~~");
+    }
+    function validate(){
+        if(document.tableForm.desText.value == ""){
+            alert( "Please provide a description!" );
+            document.tableForm.desText.style.border = "2px solid red";
+            document.tableForm.desText.focus() ;
+            return false;
+        }
+        if(document.tableForm.qNum.value == ""){
+            alert( "Please provide a quantity!" );
+            document.tableForm.qNum.style.border = "2px solid red";
+            document.tableForm.qNum.focus() ;
+            return false;
+        }
+        if(document.tableForm.pNum.value == ""){
+            alert( "Please provide a quantity!" );
+            document.tableForm.pNum.style.border = "2px solid red";
+            document.tableForm.pNum.focus() ;
+            return false;
+        }
     }
 </script>
 </html> 

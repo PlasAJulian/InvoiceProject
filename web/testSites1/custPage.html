@@ -6,9 +6,9 @@
 	</head>
 	<div class="b">
 	<body>
-            <form action="/InvoiceProject/custPageServlet" method="post">
-	<div class="modal">
-		<h2>Please enter the customer's information.</h2>
+            <form name="custForm" action="/InvoiceProject/custPageServlet" method="post" onsubmit="return(validate());">
+            <div class="modal">
+                <h2>Please enter the customer's information.</h2>
 		Name:<br>
 		<input type="text" name="custName" placeholder=""><br>
 		Phone:<br>
@@ -77,8 +77,50 @@
 		Zip code:<br>
 		<input type="text" name="custZip" placeholder=""><br>
                 <input type="submit" value="Next Page">
-                </form1>
-	</div>
-	</body>
-	</div>
+            </div>
+            </form1>
+            </body>
+        </div>
+        <script>
+            function validate(){
+                if(document.custForm.custName.value == ""){
+                    alert( "Please provide a name!" );
+                    document.custForm.custName.style.border = "2px solid red";
+                    document.custForm.custName.focus() ;
+                    return false;
+                }
+                var phone = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+                if(document.custForm.custPhone.value == "" || !document.custForm.custPhone.value.match(phone) || isNaN(document.custForm.custPhone.value)){
+                    alert( "Please provide a phone number!" );
+                    document.custForm.custPhone.style.border = "2px solid red";
+                    document.custForm.custPhone.focus() ;
+                    return false;
+                }
+                var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(document.custForm.custEmail.value == "" || !document.custForm.custEmail.value.match(email)){
+                    alert( "Please provide an email!" );
+                    document.custForm.custEmail.style.border = "2px solid red";
+                    document.custForm.custEmail.focus();
+                    return false;
+                }
+                if(document.custForm.custAdd.value == ""){
+                    alert( "Please provide an address!" );
+                    document.custForm.custAdd.style.border = "2px solid red";
+                    document.custForm.custAdd.focus();
+                    return false;
+                }
+                if(document.custForm.custCity.value == ""){
+                    alert( "Please provide an city!" );
+                    document.custForm.custCity.style.border = "2px solid red";
+                    document.custForm.custCity.focus();
+                    return false;
+                }
+                if(document.custForm.custZip.value == "" || isNaN(document.custForm.custZip.value) || document.custForm.custZip.value.length != 5 ){
+                    alert( "Please provide a zipcode!" );
+                    document.custForm.custZip.style.border = "2px solid red";
+                    document.custForm.custZip.focus();
+                    return false;
+                }
+            }
+        </script>     
 </html>

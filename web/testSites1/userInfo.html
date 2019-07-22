@@ -6,7 +6,7 @@
 	</head>
 	
 	<body>
-            <form action="/InvoiceProject/userPageServlet" method="post">
+            <form name="userForm" action="/InvoiceProject/userPageServlet" method="post" onsubmit="return(validate());">
 	<div class="modal">
 		<h2>Please enter your information.</h2>
 		Name:<br>
@@ -79,4 +79,47 @@
 		</div>
             </form>
 	</body>
+        
+        <script>
+            function validate(){
+                if(document.userForm.userName.value == ""){
+                    alert( "Please provide a name!" );
+                    document.userForm.userName.style.border = "2px solid red";
+                    document.userForm.userName.focus() ;
+                    return false;
+                }
+                if(document.userForm.userAdd.value == ""){
+                    alert( "Please provide an address!" );
+                    document.userForm.userAdd.style.border = "2px solid red";
+                    document.userForm.userAdd.focus();
+                    return false;
+                }
+                if(document.userForm.userCity.value == ""){
+                    alert( "Please provide an city!" );
+                    document.userForm.userCity.style.border = "2px solid red";
+                    document.userForm.userCity.focus();
+                    return false;
+                }
+                if(document.userForm.userZip.value == "" || isNaN(document.userForm.userZip.value) || document.userForm.userZip.value.length != 5 ){
+                    alert( "Please provide a zipcode!" );
+                    document.userForm.userZip.style.border = "2px solid red";
+                    document.userForm.userZip.focus();
+                    return false;
+                }
+                var phone = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+                if(document.userForm.userPhone.value == "" || !document.userForm.userPhone.value.match(phone) || isNaN(document.userForm.userPhone.value)){
+                    alert( "Please provide a phone number!" );
+                    document.userForm.userPhone.style.border = "2px solid red";
+                    document.userForm.userPhone.focus() ;
+                    return false;
+                }
+                var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(document.userForm.userEmail.value == "" || !document.userForm.userEmail.value.match(email)){
+                    alert( "Please provide an email!" );
+                    document.userForm.userEmail.style.border = "2px solid red";
+                    document.userForm.userEmail.focus();
+                    return false;
+                }
+            }
+        </script>  
 </html>
