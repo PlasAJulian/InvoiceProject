@@ -257,7 +257,7 @@ public class templateOne {
         content.closeAndStroke();
         System.out.println("tableRowNameBox has been added");
     }
-    public void itemList(PDPageContentStream content) throws IOException{ //add text from an array to the table in the pdf. limit is 25 itmes. breaks when a 3rd page is added.
+    public void itemList(PDPageContentStream content, data d) throws IOException{ //add text from an array to the table in the pdf. limit is 25 itmes. breaks when a 3rd page is added.
         int text = 375;
         int l = 25;
         int r0 = 437;
@@ -267,53 +267,25 @@ public class templateOne {
         int b = 360;
         int total = 0;
         int Quantity = 0;
-        ArrayList<String[]> outerArr = new ArrayList<String[]>();  /////////////////might be replaced
-        ///////////////////////////////
-        //all of this was just used to test this method. all will be removed
-        String[] myString1= {"This is what i did for the job.","1","100"};  
-        String[] myString2= {"This is what i did for the job.","2","200"};  
-        String[] myString3= {"This is what i did for the job.","3","300"};
-        String[] myString4= {"This is what i did for the job.","4","400"};
-        String[] myString5= {"This is what i did for the job.","5","500"};
-        String[] myString6= {"This is what i did for the job.","6","600"};
-        String[] myString7= {"This is what i did for the job.","7","700"};
-        String[] myString8= {"This is what i did for the job.","8","800"};
-        String[] myString9= {"This is what i did for the job.","9","900"};
-        String[] myString10= {"This is what i did for the job.","10","1000"};
-        String[] myString11= {"This is what i did for the job.","11","1100"};
-        String[] myString12= {"This is what i did for the job.","12","1200"};
-        String[] myString13= {"This is what i did for the job.","13","1300"};
-        String[] myString14= {"This is what i did for the job.","14","1400"};
-        String[] myString15= {"This is what i did for the job.","15","1500"};
-        String[] myString16= {"This is what i did for the job.","16","1600"};
-        String[] myString17= {"This is what i did for the job.","17","1700"};
-        String[] myString18= {"This is what i did for the job.","18","1800"};
-        String[] myString19= {"This is what i did for the job.","19","1900"};
-        
-        
-        outerArr.add(myString1);
-        outerArr.add(myString2);
-        outerArr.add(myString3);
-        outerArr.add(myString4);
-        outerArr.add(myString5);
-        outerArr.add(myString6);
-        outerArr.add(myString7);
-        outerArr.add(myString8);
-        outerArr.add(myString9);
-        outerArr.add(myString10);
-        outerArr.add(myString11);
-        outerArr.add(myString12);
-        outerArr.add(myString13);
-        outerArr.add(myString14);
-        outerArr.add(myString15);
-        outerArr.add(myString16);
-        outerArr.add(myString17);
-        outerArr.add(myString18);
-        outerArr.add(myString19);
-        outerArr.add(myString2);
-        outerArr.add(myString2);
-        outerArr.add(myString2);
-        ///////////////////////////////////////////////
+        ArrayList<String[]> outerArr = new ArrayList<String[]>();
+        int q = 0;
+        int w = 1;
+        int e = 2;
+        int row;
+        row = d.taskList.length/3;
+        for(int i=0;i<row;i++){
+            String one;
+            String two;
+            String three;
+            
+            one = d.taskList[q];
+            two = d.taskList[w];
+            three = d.taskList[e];
+            q = q+3;
+            w = w+3;
+            e = e+3;
+            outerArr.add(new String[] {one, two, three});
+        }
         for(int i=0;i<outerArr.size();i++){//creates all the cell that will be needed
                 //items
                 //left

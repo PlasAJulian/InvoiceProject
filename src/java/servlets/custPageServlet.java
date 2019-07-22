@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import static testObjects.PdfTest.doc;
 import testObjects.data;
 import testObjects.templateOne;
 

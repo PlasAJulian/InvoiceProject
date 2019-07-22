@@ -15,7 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import static testObjects.PdfTest.doc;
 import testObjects.data;
+import testObjects.templateOne;
 
 
 @WebServlet(name = "userPageServlet", urlPatterns = {"/userPageServlet"})
@@ -64,7 +69,7 @@ public class userPageServlet extends HttpServlet {
                     
             ses1 = request.getSession();
             ses1.setAttribute("d", dd);
-            System.out.println("Customer data added to Session");
+            System.out.println("User data added to Session");
             
             RequestDispatcher rd = request.getRequestDispatcher("testSites1/taskTable.html");//////////////////////////////////////////////////////////////////////////////////
             rd.forward(request, response);  

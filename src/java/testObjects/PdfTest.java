@@ -45,7 +45,7 @@ public class PdfTest {
         t1.tableRowNameBox(stuff);
         ///////////////////////////////////////////////////
         //items
-        t1.itemList(stuff);
+        t1.itemList(stuff, d);
         ////////////////////////////
         System.out.println(page.getMediaBox().getHeight()); 
         System.out.println(page.getMediaBox().getWidth());
